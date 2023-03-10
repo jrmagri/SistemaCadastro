@@ -9,7 +9,7 @@ namespace ControleContatos.Repositorio
     public interface IContatoRepository
     {
         ContatoModel ListarPorID(int id);
-        List<ContatoModel> ListaContatos(); 
+        List<ContatoModel> ListaContatos(int usuarioId); 
         ContatoModel Adicionar(ContatoModel contato);
         ContatoModel Atualizar(ContatoModel contato);
         bool Apagar(int id);

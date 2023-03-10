@@ -1,5 +1,6 @@
 ﻿using ControleContatos.Data;
 using ControleContatos.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,9 @@ namespace ControleContatos.Repositorio
         }
         public List<UsuarioModel> ListaUsuarios()
         {
-            return _bancoContext.Usuarios.ToList();
+            return _bancoContext.Usuarios
+                .Include(x => x.Contatos)
+                .ToList();
         }
         public UsuarioModel Adicionar(UsuarioModel usuario)
         {
